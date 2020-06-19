@@ -4,11 +4,11 @@
 #include "../include/Map.h"
 Map::Map() : map_size(9)
 {
-    //³õÊ¼»¯µØÍ¼
+    //åˆå§‹åŒ–åœ°å›¾
     for (int i = 0; i < map_size; i++)
         for (int j = 0; j < map_size; j++)
             map[i][j] = 0;
-    //³õÊ¼»¯´òÓ¡ÅĞ¾İ
+    //åˆå§‹åŒ–æ‰“å°åˆ¤æ®
     for (int i = 0; i < map_size; i++)
         for (int j = 0; j < map_size; j++)
             is_open[i][j] = false;
@@ -17,10 +17,10 @@ Map::Map() : map_size(9)
     int count = 0;
     while(count < 10)
     {
-        //Ëæ»úÉú³ÉÒ»¸öµØÀ××ø±ê
+        //éšæœºç”Ÿæˆä¸€ä¸ªåœ°é›·åæ ‡
         int x = rand() % 9;
         int y = rand() % 9;
-        if (map[x][y] == 0)//µØÀ×ÅÔ±ß8¸öµã£¬²»ÊÇµØÀ×µÄĞèÒª°ÑÊı×Ö¼Ó1
+        if (map[x][y] == 0)
         {
             count++;
             map[x][y] = BOOM;
@@ -31,7 +31,7 @@ Map::Map() : map_size(9)
     {
         for(int y = 0; y < map_size; y ++)
         {
-            if(map[x][y] == BOOM)//µØÀ×ÅÔ±ß8¸öµã£¬²»ÊÇµØÀ×µÄĞèÒª°ÑÊı×Ö¼Ó1
+            if(map[x][y] == BOOM)//åœ°é›·æ—è¾¹8ä¸ªç‚¹ï¼Œä¸æ˜¯åœ°é›·çš„éœ€è¦æŠŠæ•°å­—åŠ 1
             {
                 if (x != 0)
                 {
@@ -80,7 +80,7 @@ Map::Map() : map_size(9)
 
 void Map::PrintMap()
 {
-    //´òÓ¡ÁĞ×ø±ê
+    //æ‰“å°åˆ—åæ ‡
     std::cout << "  |";
     for (int i = 1; i <= 9; i++)
         std::cout << " " << i << " ";
@@ -93,11 +93,11 @@ void Map::PrintMap()
 
     for (int i = 0; i < map_size; i++)
     {
-        //´òÓ¡ĞĞ×ø±ê
+        //æ‰“å°è¡Œåæ ‡
         std::cout << " " << i + 1<< "|";
         for (int j = 0; j < map_size; j++)
         {
-            //´òÓ¡µØÍ¼
+            //æ‰“å°åœ°å›¾
             if (map[i][j] == BOOM)
             {
                 std::cout << " "<<HIDE<<" ";
@@ -128,7 +128,7 @@ void Map::PrintMap(OpenPointType res)
         return;
     }
 
-    //´òÓ¡ÁĞ×ø±ê
+    //æ‰“å°åˆ—åæ ‡
     std::cout << "  |";
     for (int i = 1; i <= 9; i++)
         std::cout << " " << i << " ";
@@ -141,11 +141,11 @@ void Map::PrintMap(OpenPointType res)
 
     for (int i = 0; i < map_size; i++)
     {
-        //´òÓ¡ĞĞ×ø±ê
+        //æ‰“å°è¡Œåæ ‡
         std::cout << " " << i + 1 << "|";
         for (int j = 0; j < map_size; j++)
         {
-            //´òÓ¡µØÍ¼
+            //æ‰“å°åœ°å›¾
             if (map[i][j] == BOOM)
             {
                 std::cout << " * ";
